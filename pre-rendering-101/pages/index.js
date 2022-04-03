@@ -1,6 +1,4 @@
-import Head from "next/head";
-import Image from "next/image";
-import styles from "../styles/Home.module.css";
+import Link from "next/link";
 import { promises as fs } from "fs";
 import path from "path";
 
@@ -8,7 +6,9 @@ export default function Home({ products }) {
 	return (
 		<ul>
 			{products.map((product) => (
-				<li key={product.id}> {product.title} </li>
+				<li key={product.id}>
+					<Link href={`/${product.id}`}>{product.title}</Link>
+				</li>
 			))}
 		</ul>
 	);
